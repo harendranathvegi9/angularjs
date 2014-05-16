@@ -1,0 +1,33 @@
+Install all the node modules globally. Update the PATH variable to have "node_modules" folder i.e. where npm will install
+the node modules globally. See below, on how to change the default global folder
+
+npm config set prefix "D:\DevelopmentTools\nodejs-repo"
+
+For Proxy
+npm --proxy http://"domain\user:password"@proxy.domain.com:8080 i -g connect
+
+Ghost Blog:
+https://github.com/tryghost/Ghost
+http://jsantell.github.io/poet/
+http://keystonejs.com/getting-started/
+
+http://stackoverflow.com/questions/20185210/which-one-is-better-node-js-cms-for-blog
+
+For SPA: Web Based Applications
+npm i -g connect
+
+
+https://github.com/deployd/deployd
+npm install -g deployd
+
+Hoodie === http://hood.ie/#installation
+npm install -g hoodie-cli
+
+Angular JS
+https://code.angularjs.org/1.2.16/
+https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js
+https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js
+
+https://code.angularjs.org/1.3.0-beta.8/
+https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.js
+https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js

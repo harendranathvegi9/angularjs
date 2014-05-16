@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="mockup" lang="en">
+	<head>
+		<title>Mockup - Network Simulator v3.0</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap-theme.css" />
+		<script type="text/javascript" src="frameworks/angularjs/angular.js" ></script>
+		<!-- Bootstrap required jQuery > 1.9-->
+		<script type="text/javascript" src="frameworks/jQuery/jquery.js"></script>
+		<!-- Required if we want to show drop down and other transitions. For now, lets use JavaScript. May be we will move towards css3 transition-->
+		<script type="text/javascript" src="frameworks/bootstrap/js/bootstrap.js" ></script>
+		<script type="text/javascript">
+			angular.module("mockup",[]);
+		</script>
+		<style>
+			.spa-shell-head-acct{
+				position: absolute;
+				right: 5%;
+			}
+			.spa-shell-head-acct button{
+				margin-top: 20%;
+			}
+			.navbar-brand {
+				position: absolute;
+				left: 30%;
+				font-size: 180%;
+			}
+			.spa-shell-template-listing{
+				background-color: #eea;
+			}
+			.spa-shell-main-content{
+				background-color: #add;	
+			}
+		</style>
+	</head>
+	<body>
+		<div class="spa-shell-head">
+			<div class="navbar navbar-inverse spa-shell-head-logo">
+				<a class="navbar-brand" href="#"><span>Network Simulator</span></a>
+				<div class="btn-group spa-shell-head-acct">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-user"></span> Rohit
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a role="menuitem" href="#">Account</a></li>
+						<li><a role="menuitem" href="#">Preferences</a></li>
+						<li class="divider"></li>
+						<li><a role="menuitem" href="#"><span class="glyphicon glyphicon-off"></span> Signout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		<div class="container">
+			<div class="panel panel-default row">
+				<div class="col-xs-3 spa-shell-template-listing">
+					Netsim Templates will be shown here 
+				</div>
+				<div class="col-xs-8 spa-shell-main-content">
+					Main Content will be shown here
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
