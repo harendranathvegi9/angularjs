@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html ng-app="mockup" lang="en">
+	<head>
+		<title>Mockup Static Template Data View - Network Simulator v3.0</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap-theme.css" />
+		<script type="text/javascript" src="frameworks/angularjs/angular.js" ></script>
+		<!-- Bootstrap required jQuery > 1.9-->
+		<script type="text/javascript" src="frameworks/jQuery/jquery.js"></script>
+		<!-- Required if we want to show drop down and other transitions. For now, lets use JavaScript. May be we will move towards css3 transition-->
+		<script type="text/javascript" src="frameworks/bootstrap/js/bootstrap.js" ></script>
+		<script type="text/javascript">
+			angular.module("mockup",[]);
+		</script>
+		<style>
+			.spa-shell-head-acct{
+				position: absolute;
+				right: 5%;
+			}
+			.spa-shell-head-acct button{
+				margin-top: 20%;
+			}
+			.navbar-brand {
+				position: absolute;
+				left: 30%;
+				font-size: 180%;
+			}
+			.spa-shell-template-listing{
+				background-color: #eea;
+			}
+			.spa-shell-main-content{
+				background-color: #add;	
+			}
+			#spa-shell-template-listing-ul{
+				display: block;
+			}
+			#spa-shell-template-listing-ul ul{
+				display: none;
+			}
+			.HandCursorStyle { 
+				cursor: pointer; 
+				cursor: hand; 
+			}
+		</style>
+
+		<script type="text/JavaScript">
+    // Add this to the onload event of the BODY element
+    function addEvents() {
+      activateTree(document.getElementById("spa-shell-template-listing-ul"));
+    }
+
+    // This function traverses the list and add links 
+    // to nested list items
+    function activateTree(oList) {
+      // Collapse the tree
+      for (var i=0; i < oList.getElementsByTagName("ul").length; i++) {
+        oList.getElementsByTagName("ul")[i].style.display="none";            
+      }                                                                  
+      // Add the click-event handler to the list items
+      if (oList.addEventListener) {
+        oList.addEventListener("click", toggleBranch, false);
+      } else if (oList.attachEvent) { // For IE
+        oList.attachEvent("onclick", toggleBranch);
+      }
+      // Make the nested items look like links
+      addLinksToBranches(oList);
+    }
+
+    // This is the click-event handler
+    function toggleBranch(event) {
+      var oBranch, cSubBranches;
+      if (event.target) {
+        oBranch = event.target;
+      } else if (event.srcElement) { // For IE
+        oBranch = event.srcElement;
+      }
+      cSubBranches = oBranch.getElementsByTagName("ul");
+      if (cSubBranches.length > 0) {
+        if (cSubBranches[0].style.display == "block") {
+          cSubBranches[0].style.display = "none";
+        } else {
+          cSubBranches[0].style.display = "block";
+        }
+      }
+    }
+
+    // This function makes nested list items look like links
+    function addLinksToBranches(oList) {
+      var cBranches = oList.getElementsByTagName("li");
+      var i, n, cSubBranches;
+      if (cBranches.length > 0) {
+        for (i=0, n = cBranches.length; i < n; i++) {
+          cSubBranches = cBranches[i].getElementsByTagName("ul");
+          if (cSubBranches.length > 0) {
+            addLinksToBranches(cSubBranches[0]);
+            cBranches[i].className = "HandCursorStyle";
+            cBranches[i].style.color = "blue";
+            cSubBranches[0].style.color = "black";
+            cSubBranches[0].style.cursor = "auto";
+          }
+        }
+      }
+    }
+  </script>
+	</head>
+	<body onload="addEvents();">
+		<div class="spa-shell-head">
+			<div class="navbar navbar-inverse spa-shell-head-logo">
+				<a class="navbar-brand" href="#"><span>Network Simulator</span></a>
+				<div class="btn-group spa-shell-head-acct">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-user"></span> Rohit
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a role="menuitem" href="#">Account</a></li>
+						<li><a role="menuitem" href="#">Preferences</a></li>
+						<li class="divider"></li>
+						<li><a role="menuitem" href="#"><span class="glyphicon glyphicon-off"></span> Signout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		<div class="container">
+			<div class="panel panel-default row">
+				<div class="col-xs-3 spa-shell-template-listing">
+					<ul id="spa-shell-template-listing-ul">
+						<li><span class="template-listing-root">Network Simulator - Templates</span>
+							<ul>
+								<li class="template-category-list"><span class="template-category-name">ATM</span>
+									<ul>
+										<li class="template-name"><span>APA/China Union Pay</span></li>
+										<li class="template-name"><span>ISO8583/v93</span></li>
+										<li class="template-name"><span>EMEA/CDN STUR</span></li>
+									</ul>
+								</li>
+								<li class="template-category-list"><span class="template-category-name">EDC</span>
+									<ul>
+										<li class="template-name"><span>APA/HL(CBA)</span></li>
+										<li class="template-name"><span>EMEA/GICC</span></li>
+									</ul>
+								</li>
+								<li class="template-category-list"><span class="template-category-name">POS</span>
+									<ul>
+										<li class="template-name"><span>US/GCAG</span></li>
+									</ul>
+								</li>
+								<li class="template-category-list"><span class="template-category-name">HSM</span>
+									<ul>
+									</ul>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+				<div class="col-xs-9 spa-shell-main-content">
+					Main Content will be shown here
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
