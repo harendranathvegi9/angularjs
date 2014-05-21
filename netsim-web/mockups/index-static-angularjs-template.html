@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="mockup" lang="en">
+	<head>
+		<title>Mockup Static Angular JS Template Data View - Network Simulator v3.0</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap-theme.css" />
+		<script type="text/javascript" src="frameworks/angularjs/angular.js" ></script>
+        <script type="text/javascript" src="frameworks/angularjs/angular-animate.js" ></script>
+        <script type="text/javascript" src="frameworks/angular-bootstrap-nav-tree/abn_tree_directive.js" ></script>
+        <link rel="stylesheet" href="frameworks/angular-bootstrap-nav-tree/abn_tree.css" />
+		<!-- Bootstrap required jQuery > 1.9-->
+		<script type="text/javascript" src="frameworks/jQuery/jquery.js"></script>
+		<!-- Required if we want to show drop down and other transitions. For now, lets use JavaScript. May be we will move towards css3 transition-->
+		<script type="text/javascript" src="frameworks/bootstrap/js/bootstrap.js" ></script>
+        <script type="text/javascript" src="js/static-angularjs-template.js" ></script>
+        <style>
+			.spa-shell-head-acct{
+				position: absolute;
+				right: 5%;
+			}
+			.spa-shell-head-acct button{
+				margin-top: 20%;
+			}
+			.navbar-brand {
+				position: absolute;
+				left: 30%;
+				font-size: 180%;
+			}
+            .container{
+                min-height: 50%;
+                min-width: 50%;
+                width: 99%;
+                height: 100%;
+                overflow: auto;
+            }
+			.spa-shell-template-listing{
+				background-color: #E0FFFF;
+			}
+			.spa-shell-main-content{
+				background-color: #add;	
+			}
+		</style>
+	</head>
+	<body ng-controller="mockupController">
+		<div class="spa-shell-head">
+			<div class="navbar navbar-inverse spa-shell-head-logo">
+				<a class="navbar-brand" href="#"><span>Network Simulator</span></a>
+				<div class="btn-group spa-shell-head-acct">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-user"></span> Rohit
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a role="menuitem" href="#">Account</a></li>
+						<li><a role="menuitem" href="#">Preferences</a></li>
+						<li class="divider"></li>
+						<li><a role="menuitem" href="#"><span class="glyphicon glyphicon-off"></span> Signout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		<div class="container">
+			<div class="panel panel-default row">
+				<div class="col-xs-3 spa-shell-template-listing">
+				    <span ng-if="doing_async">loading...</span>
+                    <abn-tree 
+                            tree-data="tree_data" 
+                            tree-control="tree" 
+                            on-select="my_tree_handler(branch)"
+                            expand-level="1"  
+                            doing_async="true"  
+                            >
+                    </abn-tree>
+				</div>
+				<div class="col-xs-9 spa-shell-main-content">
+					Main Content will be shown here
+                    <p class="alert alert-warning">{{ output }}</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+.spa-shell-head-acct{
+    position: absolute;
+	right: 5%;
+}
+.spa-shell-head-acct button{
+    margin-top: 20%;
+}
+.navbar-brand{
+    position: absolute;
+    left: 30%;
+	font-size: 180%;
+}
+.container{
+    min-height: 50%;
+    min-width: 50%;
+    width: 99.5%;
+    height: 100%;
+    overflow: auto;
+}
+.spa-shell-template-listing{
+    background-color: #E0FFFF;
+}
+.spa-shell-main-content{
+    background-color: #add;	
+}
