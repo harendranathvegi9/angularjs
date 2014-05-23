@@ -9,8 +9,10 @@
 		<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="themes/devoops/plugins/select2/select2.css" />
         <link rel="stylesheet" href="themes/devoops/css/style.css"/>
+        <link rel="stylesheet" href="frameworks/angular-bootstrap-nav-tree/abn_tree.css" />
         <!-- <link rel="stylesheet" href="css/static-angularjs-template.css"/> -->
         
+        <!-- Load all dependent JS files -->
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
@@ -18,14 +20,21 @@
 		<![endif]-->
 		
 		<script type="text/javascript" src="frameworks/angularjs/angular.js" ></script>
+		<script type="text/javascript" src="frameworks/angularjs/angular-route.js" ></script>
         <script type="text/javascript" src="frameworks/angularjs/angular-animate.js" ></script>
         <script type="text/javascript" src="frameworks/angular-bootstrap-nav-tree/abn_tree_directive.js" ></script>
-        <link rel="stylesheet" href="frameworks/angular-bootstrap-nav-tree/abn_tree.css" />
+        
 		<!-- Bootstrap requires jQuery > 1.9-->
 		<script type="text/javascript" src="frameworks/jQuery/jquery.js"></script>
-		<!-- Required if we want to show drop down and other transitions. For now, lets use JavaScript. May be we will move towards css3 transition-->
+		<!-- Required if we want to show drop down and other transitions. 
+            For now, lets use JavaScript. May be we will move towards css3 transition-->
 		<script type="text/javascript" src="frameworks/bootstrap/js/bootstrap.js" ></script>
-        <script type="text/javascript" src="js/static-angularjs-template.js" ></script>
+        
+        <!-- Load all my scripts -->
+        <script type="text/javascript" src="js/static-angularjs-template-app.js" ></script>
+        <script type="text/javascript" src="js/static-angularjs-template-services.js" ></script>
+        <script type="text/javascript" src="js/static-angularjs-template-controller.js" ></script>
+        
         
 	</head>
 	<body ng-controller="mockupController">
@@ -141,7 +150,7 @@
 					       </a>
                         </li>
                         <li>
-                            <a href="ajax/templates.html">
+                            <a href="#/templates">
                                 <i class="fa fa-list"></i>
                                 <span class="hidden-xs">All Templates</span>
                             </a>
@@ -150,7 +159,11 @@
                 </div>
            
                 <div id="content" class="col-xs-12 col-sm-10">
-                    <div id="ajax-content"></div>
+                    <!-- whenever we navigate through our app routes, 
+                         Angular will load the associated view and render
+                        it in place of the <ng-view> tag.
+                    -->
+                    <ng-view></ng-view>
                 </div>
              </div>    
         </div>
@@ -160,9 +173,6 @@
         <footer>
         </footer>
         <!-- End Footer -->
-        <!-- Load all my scripts -->
-        <script type="text/javascript" src="js/static-angularjs-template-app.js" ></script>
-        <script type="text/javascript" src="js/static-angularjs-template-services.js" ></script>
-        <script type="text/javascript" src="js/static-angularjs-template-controller.js" ></script>
+        
 	</body>
 </html>
