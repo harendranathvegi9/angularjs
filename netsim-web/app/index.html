@@ -1,42 +1,178 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="myApp" ng-controller="appCtrl"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" ng-app="myApp" ng-controller="appCtrl"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" ng-app="myApp" ng-controller="appCtrl"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"  class="no-js" ng-app="myApp" ng-controller="appCtrl"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  <link rel="stylesheet" href="css/app.css"/>
-  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Network Simulator - Web Version">
+<meta name="author" content="Rohit Mohta">
+<title>Network Simulator | Home</title>
+<!-- Loading html5-boilerplate and bootsrap css files. Need to sort these out and load only the one's that are needed-->
+<!--
+<link rel="stylesheet" type="text/css" href="bower_components/html5-boilerplate/css/normalize.css" />	
+<link rel="stylesheet" type="text/css" href="bower_components/html5-boilerplate/css/main.css" />	
+-->
+<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />	
+<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+<link rel="stylesheet" type="text/css" href="bower_components/ng-table/ng-table.css" />	
+
+<link rel="stylesheet" type="text/css" href="libs/angular-bootstrap-nav-tree/abn_tree.css" />
+	
+<link rel="stylesheet" type="text/css" href="css/app.css" />
+<link rel="stylesheet" type="text/css" href="css/static.css" />
+	
+<!-- <script type="text/javascript" src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script> -->
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<!-- http://jquery.com/download/#jquery-migrate-plugin -->
+<script type="text/javascript" src="libs/jquery-migrate/jquery-migrate.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="bower_components/angular-animate/angular-animate.js" ></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="bower_components/ng-table/ng-table.js" ></script>		
+	
+<script type="text/javascript" src="libs/angular-bootstrap-nav-tree/abn_tree_directive.js" ></script>	
+
+	
+	<!-- My Angular related components-->	
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/services.js"></script>	
+<script type="text/javascript" src="js/controllers.js"></script>
+	
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<body >
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. 
+Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div id="wrapper">
+<!-- Start page header-->
+	<div id="page-header" >
+		<div class="one-row">
+				<div id="corporate-logo">
+						<img src="img/tatalogo.gif" title="TATA" alt="TATA"/>
+				</div>
+				<div id="application-logo">
+						<img src="img/netsim_icon.gif" title="Network Simulator" alt="Network Simulator"/>
+				</div>
+		</div>
+	<div id="page-header-nav-menu" class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+			</button>
+		 </div>
+		<div class="navbar-collapse collapse pull-right">
+			<ul class="nav navbar-nav ">
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+						<span class="glyphicon glyphicon-tower"></span> <span class="nav-menu-txt">
+						Administration <span class="caret"></span>
+						</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Maintain Users</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">
+						<span class="glyphicon glyphicon-question-sign"></span> <span class="nav-menu-txt">Help</span>
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+						<span class="glyphicon glyphicon-user"></span> 
+						<span class="nav-menu-txt">
+							<span id="user-name">{{userDetails.displayName}}</span><span class="caret"></span>
+						</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li class="disabled"><a href="#">Role: {{userDetails.role}}</a></li>
+						<li class="disabled"><a href="#">Team: {{userDetails.team}}</a></li>
+						<li class="disabled"><a href="#">Last Login: {{userDetails.last_login}}</a></li>
+						<li class="divider"></li>
+						<li class="disabled"><a href="#">Current Workspace: {{userDetails.curr_workspace}}</a></li>	
+						<li class=""><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Switch Workspace</a></li>	
+						<li class="divider"></li>
+						<li class=""><a href="#"><span class="glyphicon glyphicon-cog"></span> My Settings</a></li>
+					</ul>
+				</li>
+				</ul>
+				</div> <!-- END .navbar-collapse-->
+		</div> <!-- END #page-header-nav-menu -->
+	</div>
+<!-- End page header-->
+	
+<!-- Start Top Menu Header -->
+<div id="top-menu-header">
+<div class="navbar-inverse navbar-amex">
+	<div class="container">
+		<div class="navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Dashboard</a></li>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Template<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#/templates/all" class="menu-sub-link">See All</a></li>
+					</ul>
+				</li>
 
-  <div ng-view></div>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Network Connection<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#/network/display" class="menu-sub-link">See All</a></li>
+						<li><a href="#" class="menu-sub-link">Test A Connection</a></li>
+						<!--<li class="divider"></li>
+						<li class="dropdown-header">Commission Administration</li> -->
+						
+					</ul>
+				</li>
 
-  <div>Angular seed app: v<span app-version></span></div>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">About<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="menu-sub-link"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
+					</ul>
+				</li>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
+			</ul> <!-- END .nav .navbar-nav-->
+		</div>
+	</div>
+</div> <!-- END .navbar-inverse-->
+</div> <!-- End Top Menu Header -->
+<div id="breadcrumb">
+<ol class="breadcrumb">
+		<li><a href="#">Home</a></li>
+</ol>
+</div>
+
+<div id="page-container" class="container-fluid">
+<div class="row">
+		<!-- START - Main Data-->
+		<div id="content" class="full-content-area main-content-area">
+				<!-- whenever we navigate through our app routes, 
+						 Angular will load the associated view and render
+						it in place of the <ng-view> tag.
+				-->
+     	<ng-view></ng-view>
+     </div>
+		<!-- END - Main Data-->
+</div>
+</div>
+<div id="page-footer">
+	<div class="page-restriction-level"><span>TCS Internal</span></div>
+	<div class="footer-content">            
+			<p class="copyright"><span class="glyphicon glyphicon-copyright-mark"></span>  2014 Tata Consultancy Services. All Rights Reserved.</p>
+	</div>    
+</div>
+</div>
+
+
 </body>
 </html>

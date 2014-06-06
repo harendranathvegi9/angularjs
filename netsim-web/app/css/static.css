@@ -1,0 +1,75 @@
+/*
+ * static.css - CSS for Static Content of the page
+ *
+ * @author Rohit Mohta
+ * @date 26 May 2014
+ */
+#corporate-logo{
+    position: relative;
+    float: left;
+    z-index: 10;
+		margin-left: 0.5em;
+		margin-right: 3em;
+}
+#application-logo{
+    float: left;
+    position: relative;
+    /*left: 74%; */
+	  margin-left: 2em;
+    z-index: 10;
+}
+#page-header-nav-menu{
+	padding-top: 1em; 
+	/*margin-right: 1em;
+	z-index: 2;*/
+}
+#page-header-nav-menu li.dropdown > ul.dropdown-menu{
+	margin-left: -1em;
+}
+/*START - Everything related to Top Menu Bar */
+#top-menu-header{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.navbar-header > button > span.icon-bar{
+	background-color: #000;
+}
+.navbar-custom{
+	background-image: -webkit-linear-gradient(top,#428bca 0%, #2d6ca2 100%);
+  background-image:        linear-gradient(to bottom, #428bca 0%, #2d6ca2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+}
+.dropdown-menu > li > a:hover{
+	text-decoration: underline;
+	color: #1d1db2;
+}
+
+.navbar-custom .navbar-nav>li>a{
+	color: #000;
+}
+/*END - Everything related to Top Menu Bar */
+/* START - Everything related to bread-crumbs */
+#breadcrumb {
+  padding: 0;
+	padding-left: 1em;
+  line-height: 2em;
+  background: #525252;
+  margin-bottom: 0.5em;
+	-webkit-border-radius: 5em;
+  -moz-border-radius: 5em;
+  border-radius: 5em;
+}
+.breadcrumb {
+  padding: 0 15px;
+  background: none;
+  margin: 0;
+}
+.breadcrumb > li > a {
+  color:#bcbaba;
+}
+.breadcrumb > li > a:hover, .breadcrumb > li:last-child > a {
+  color:#f8f8f8;
+}
+/* END - Everything related to bread-crumbs */

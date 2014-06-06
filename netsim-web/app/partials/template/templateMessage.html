@@ -1,0 +1,22 @@
+<style>
+		.spa-shell-template-listing{
+				background-color: #E0FFFF;
+			}
+			.spa-shell-main-content{
+				background-color: #dba123;	
+			}
+</style>
+<div class="panel panel-default row">
+	<div class="col-xs-3 spa-shell-template-listing">
+	  <span ng-if="doing_async">loading...</span>
+    <abn-tree tree-data="selected_template_tree_data" tree-control="selected_template_tree" 
+							on-select="selected_template_tree_handler(branch)"
+              expand-level="2"  doing_async="true"> 
+      </abn-tree>
+		</div>
+		<div class="col-xs-9 spa-shell-main-content">
+			
+		</div>
+</div>
+
+	

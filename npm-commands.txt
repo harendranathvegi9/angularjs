@@ -3,6 +3,10 @@ the node modules globally. See below, on how to change the default global folder
 
 npm config set prefix "D:\DevelopmentTools\nodejs-repo"
 
+#proxy = http://INDIA%5C307814:May%402014@proxy.tcs.com:8080/
+https-proxy = http://INDIA%5C307814:May%402014@proxy.tcs.com:8080/
+
+
 For Proxy
 npm --proxy http://"domain\user:password"@proxy.domain.com:8080 i -g connect
 

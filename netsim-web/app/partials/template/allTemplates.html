@@ -1,0 +1,16 @@
+<style>
+		.spa-shell-template-listing{
+				background-color: #E0FFFF;
+			}
+</style>
+<div class="panel panel-default row">
+	<div class="col-xs-6 spa-shell-template-listing">
+	  <span ng-if="doing_async">loading...</span>
+    <abn-tree tree-data="all_templates_tree_data" tree-control="all_templates_tree" 
+							on-select="all_templates_tree_handler(branch)"
+              expand-level="1"  doing_async="true"> 
+      </abn-tree>
+		</div>
+</div>
+
+	

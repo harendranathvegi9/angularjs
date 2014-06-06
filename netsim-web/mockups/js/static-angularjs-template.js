@@ -5,11 +5,11 @@
     if (angular.version.full.indexOf("1.2") >= 0) {
         deps.push('ngAnimate');
     }
-            /*
+        /*
 		     * AngularJS apps are formed from one or more modules. It's created by calling module() method.
 		     * The module method requires two arguments : the name of the module, and an array of dependency modules.
 		     * If the module does not depend on any module, then have an empty array. Do not omit the second argument
-		      */
+		     */
             //the module name as in ng-app is mock-up
     app = angular.module('mockup', deps)
           .factory('appAPIService' , function ($http) {

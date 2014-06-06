@@ -1,6 +1,53 @@
-/* app css stylesheet */
+/*
+ * app.css
+ * @author Rohit Mohta
+ * @date 26 May 2014
+ */
+html, body, #wrapper { 
+    height: 99%; 
+    width: 100%;
+}
+#wrapper{
+		position: relative;
+    width: 98%;
+    margin-left:0.5%;
+    margin-right:0.5%;
+    margin-top:0.5%;
+    margin-bottom: 0px; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+#page-header{
+		background-color: #fff !important;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    border: 0px;
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    moz-border-radius: 1px;
+    box-shadow: 0px 1px 2px; #9bcaf2;
+		min-height: 64px;
+		padding-bottom: 0;
+}
+#page-container{
+		overflow: auto;
+		min-height: 82%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+		height: 83%;
+	  width: 100%;
+}
+#page-footer{
+		background-color: #fff !important;
+    position: relative;
+    clear: both;
+    bottom: 0px;
+    font-size: 80%;
+}
 
-.menu {
+/*.menu {
   list-style: none;
   border-bottom: 0.1em solid black;
   margin-bottom: 2em;
@@ -27,4 +74,17 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}*/
+.page-heading{
+	color: #fff;
+	background-color: #428bca;
+	margin-left: 1em;
+	margin-right: 1em;
+	font-variant:small-caps;
+	padding: 0.5em;
+	border: 0.5px solid transparent;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.center-align{
+	text-align: center;
 }
